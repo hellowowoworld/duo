@@ -37,7 +37,17 @@ const App = () => {
           <Route
             exact
             path="/"
-            element={user ? <Home /> : <Navigate to="/login" />}
+            element={
+              user ? (
+                currentUserInfo ? (
+                  <Home />
+                ) : (
+                  <Navigate to="/settings" />
+                )
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
           />
 
           <Route
